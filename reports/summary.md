@@ -1,6 +1,6 @@
 # US Job Market Pulse - Latest Readout
 
-_Data refreshed: 2026-10-25 16:52 UTC_
+_Data refreshed: 2026-10-26 01:08 UTC_
 
 - **Labor Market Health Score: 60/100 (Healthy)** as of August 2026, up 6 points from a year earlier.
 - There are **1.01 job openings per unemployed person** (vs 0.94 a year ago). More openings than job seekers.
@@ -9,4 +9,4 @@ _Data refreshed: 2026-10-25 16:52 UTC_
 - Real wage growth: **-0.7%** year over year - paychecks are falling behind inflation.
 - Sahm Rule recession indicator: **0.23** - not triggered; threshold is 0.50.
 - Hiring demand rose most in **Retail trade** (+0.9 pts openings rate) and fell most in **Leisure & hospitality** (-1.2 pts).
-- Highest state layoff rates (December 2025): Idaho (10.9%), Indiana (1.7%), Alaska (1.5%).
+- Highest state layoff rates (December 2025): Idaho (10.9%*), Indiana (1.7%), Alaska (1.5%). *Unusually high versus the typical state; state estimates are model-based and often revised.
