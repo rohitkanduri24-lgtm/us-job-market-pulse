@@ -217,8 +217,15 @@ def build_insights(k: dict, industry: pd.DataFrame, state: pd.DataFrame) -> list
                        f"and fell most in **{bottom.industry}** ({bottom.openings_rate_yoy_change:+.1f} pts).")
     if not state.empty and "layoffs_rate" in state:
         hi = state.nlargest(3, "layoffs_rate")
-        names = ", ".join(f"{r.state_name} ({r.layoffs_rate:.1f}%)" for r in hi.itertuples())
-        out.append(f"Highest state layoff rates ({_fmt_month(state['as_of'].iloc[0] + '-01')}): {names}.")
+        typical = state["layoffs_rate"].median()
+        # State JOLTS figures are model-based and noisy: flag readings far above the typical state
+        # so a single unrevised spike is not presented as a firm trend.
+        names = ", ".join(
+            f"{r.state_name} ({r.layoffs_rate:.1f}%{'*' if r.layoffs_rate > 4 * typical else ''})"
+            for r in hi.itertuples())
+        note = " *Unusually high versus the typical state; state estimates are model-based and often revised." \
+            if (hi["layoffs_rate"] > 4 * typical).any() else ""
+        out.append(f"Highest state layoff rates ({_fmt_month(state['as_of'].iloc[0] + '-01')}): {names}.{note}")
     return out
 
 
